@@ -250,7 +250,7 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\HelloWorld\Test.cshtml" />
     <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
     <Content Include="Views\Account\ConfirmEmail.cshtml" />
     <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
@@ -276,7 +276,7 @@
     <Content Include="Views\Clans\Details.cshtml" />
     <Content Include="Views\Clans\Edit.cshtml" />
     <Content Include="Views\Clans\Index.cshtml" />
-    <Content Include="Views\HelloWorld\Index.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Clans\Search.cshtml" />
     <Content Include="Views\Clans\Results.cshtml" />
   </ItemGroup>
