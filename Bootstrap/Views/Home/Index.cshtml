@@ -1,7 +1,8 @@
-﻿@model Bootstrap.Models.Clan
+﻿@*@model Bootstrap.Models.Clan*@
+@model Bootstrap.Models.ViewModel
 
 @{
-    ViewBag.Title = "Home Page";
+    ViewBag.Title = "Clan Battle!!!";
 }
 
 @using (Html.BeginForm())
@@ -20,14 +21,27 @@
                         <h3>Enter Company name or Gamertag</h3>
                     </center>
                     <div class="col-md-12">
-                        @Html.EditorFor(model => model.Company, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.Company, "", new { @class = "text-danger" })
+
+                        @*
+                            Uses a seperate class model called ViewModel to store a string             
+                        *@
+
+                        @*@Html.TextBoxFor(s => s.Name, new { htmlAttributes = new { @class = "form-control" } })*@
+                        @*<input type="submit" value="Check Text" />*@
+                        @Html.EditorFor(s => s.Name, new { htmlAttributes = new { @class = "form-control" } })
+                        @*@Html.ValidationMessageFor(model => model.Company, "", new { @class = "text-danger" })*@
                     </div>
         </center>
 
         <center>
             <div class="form-group">
                 <div class="col-md-offset-0 col-md-12">
+                    @*
+                        Clicking this form takes the value in the above TextBoxFor(),
+                        stores the text in the strongly typed model, and "submits" it 
+                        performing a POST action which calls the controllers overloaded Index() marked with [HttpPost] 
+                        ultimately calling the Index Controller logic.
+                    *@
                     <input type="submit" value="Search" class="btn btn-default" />
                 </div>
             </div>
@@ -36,4 +50,5 @@
         <p><center><a href="http://asp.net" class="btn btn-primary btn-lg">Learn more, yaa crazy Dutch bastard &raquo;</a></center></p>
     </div>
 
+    @*<h3>@ViewBag.Message</h3>*@
 }

@@ -1,0 +1,24 @@
+﻿@model Bootstrap.Models.ViewModel
+
+@{
+    ViewBag.Title = "Results";
+}
+
+<h2>Results</h2>
+
+@using (Html.BeginForm())
+{
+    <p>Clan Battle Results</p>
+    @ViewBag.Message
+
+    <p>Members: </p>
+
+    <ul>
+        @foreach (var item in ViewBag.ProgList)
+        {
+            <li>@item</li>
+        }
+    </ul>
+}
+
+
