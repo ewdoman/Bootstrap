@@ -41,17 +41,17 @@ namespace Bootstrap.Controllers
 
             //****************************************
 
-            //System.Diagnostics.Debug.WriteLine("Main starting call");
-            //Task results = Task.Run(() => HaloSharpHelper.printResults());
+            System.Diagnostics.Debug.WriteLine("Main starting call");
+            Task results = Task.Run(() => HaloSharpHelper.printResults());
+            results.Wait();
+            System.Diagnostics.Debug.WriteLine("MAIN: This doesn't take long in main");
+            System.Diagnostics.Debug.WriteLine("MAIN: Here's some more logic while we wait");
+            System.Diagnostics.Debug.WriteLine("MAIN: Things are happening on a different thread");
+            System.Diagnostics.Debug.WriteLine("MAIN: Going to sleep for 3 seconds");
+            System.Threading.Thread.Sleep(3000);
+            System.Diagnostics.Debug.WriteLine("MAIN: Woke back up");
             //results.Wait();
-            //System.Diagnostics.Debug.WriteLine("MAIN: This doesn't take long in main");
-            //System.Diagnostics.Debug.WriteLine("MAIN: Here's some more logic while we wait");
-            //System.Diagnostics.Debug.WriteLine("MAIN: Things are happening on a different thread");
-            //System.Diagnostics.Debug.WriteLine("MAIN: Going to sleep for 3 seconds");
-            //System.Threading.Thread.Sleep(3000);
-            //System.Diagnostics.Debug.WriteLine("MAIN: Woke back up");
-            ////results.Wait();
-            //System.Diagnostics.Debug.WriteLine("Only print this at the end");
+            System.Diagnostics.Debug.WriteLine("Only print this at the end");
 
             //****************************************
 

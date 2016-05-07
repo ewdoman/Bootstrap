@@ -10,7 +10,7 @@ namespace Bootstrap.Models
     {
         public int ID { get; set; }
         public string Gamertag { get; set; }
-        public string Company { get; set; } 
+        public string Company { get; set; }
     }
 
     public class ClanDBContext : DbContext

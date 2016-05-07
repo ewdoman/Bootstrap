@@ -15,8 +15,10 @@ C:\Users\doma8_000\Source\Local\Bootstrap\Bootstrap\bin\Bootstrap.dll.config
 C:\Users\doma8_000\Source\Local\Bootstrap\Bootstrap\bin\Bootstrap.dll
 C:\Users\doma8_000\Source\Local\Bootstrap\Bootstrap\bin\Bootstrap.pdb
 C:\Users\doma8_000\Source\Local\Bootstrap\Bootstrap\bin\Antlr3.Runtime.dll
+C:\Users\doma8_000\Source\Local\Bootstrap\Bootstrap\bin\AWSSDK.dll
 C:\Users\doma8_000\Source\Local\Bootstrap\Bootstrap\bin\EntityFramework.dll
 C:\Users\doma8_000\Source\Local\Bootstrap\Bootstrap\bin\EntityFramework.SqlServer.dll
+C:\Users\doma8_000\Source\Local\Bootstrap\Bootstrap\bin\HaloSharp.dll
 C:\Users\doma8_000\Source\Local\Bootstrap\Bootstrap\bin\Microsoft.AI.Agent.Intercept.dll
 C:\Users\doma8_000\Source\Local\Bootstrap\Bootstrap\bin\Microsoft.AI.DependencyCollector.dll
 C:\Users\doma8_000\Source\Local\Bootstrap\Bootstrap\bin\Microsoft.AI.PerfCounterCollector.dll
@@ -51,6 +53,7 @@ C:\Users\doma8_000\Source\Local\Bootstrap\Bootstrap\bin\System.Web.WebPages.Razo
 C:\Users\doma8_000\Source\Local\Bootstrap\Bootstrap\bin\WebGrease.dll
 C:\Users\doma8_000\Source\Local\Bootstrap\Bootstrap\bin\HtmlAgilityPack.dll
 C:\Users\doma8_000\Source\Local\Bootstrap\Bootstrap\bin\Quartermaster.pdb
+C:\Users\doma8_000\Source\Local\Bootstrap\Bootstrap\bin\AWSSDK.pdb
 C:\Users\doma8_000\Source\Local\Bootstrap\Bootstrap\bin\Microsoft.AI.DependencyCollector.xml
 C:\Users\doma8_000\Source\Local\Bootstrap\Bootstrap\bin\Microsoft.AI.ServerTelemetryChannel.xml
 C:\Users\doma8_000\Source\Local\Bootstrap\Bootstrap\bin\Microsoft.AI.Web.xml
@@ -84,6 +87,3 @@ C:\Users\doma8_000\Source\Local\Bootstrap\Bootstrap\bin\HtmlAgilityPack.xml
 C:\Users\doma8_000\Source\Local\Bootstrap\Bootstrap\obj\Debug\ClanBattle.csprojResolveAssemblyReference.cache
 C:\Users\doma8_000\Source\Local\Bootstrap\Bootstrap\obj\Debug\Bootstrap.dll
 C:\Users\doma8_000\Source\Local\Bootstrap\Bootstrap\obj\Debug\Bootstrap.pdb
-C:\Users\doma8_000\Source\Local\Bootstrap\Bootstrap\bin\HaloSharp.dll
-C:\Users\doma8_000\Source\Local\Bootstrap\Bootstrap\bin\AWSSDK.dll
-C:\Users\doma8_000\Source\Local\Bootstrap\Bootstrap\bin\AWSSDK.pdb
