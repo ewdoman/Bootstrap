@@ -7,6 +7,6 @@ namespace Bootstrap.Models
 {
     public class ViewModel
     {
-        public string Name { get; set; }
+        public string Name { set; get; }
     }
 }
