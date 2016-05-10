@@ -44,10 +44,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="AWSSDK, Version=2.3.55.0, Culture=neutral, PublicKeyToken=9f476d3089b52be3, processorArchitecture=MSIL">
-      <HintPath>..\packages\AWSSDK.2.3.55.0\lib\net45\AWSSDK.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="HaloSharp, Version=1.5.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\HaloSharp.1.5.0.0\lib\net452\HaloSharp.dll</HintPath>
       <Private>True</Private>
@@ -220,6 +216,25 @@
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Scraper.cs" />
+    <Compile Include="Models\Spartan.cs">
+      <DependentUpon>SpartanCompany.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SpartanCompany.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SpartanCompany.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SpartanCompany.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SpartanCompany.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SpartanCompany.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SpartanCompany.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -230,12 +245,29 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Models\SpartanCompany.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>SpartanCompany.edmx</DependentUpon>
+      <LastGenOutput>SpartanCompany.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\SpartanCompany.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>SpartanCompany.edmx</DependentUpon>
+      <LastGenOutput>SpartanCompany.cs</LastGenOutput>
+    </Content>
     <Content Include="Scripts\ai.0.15.0-build58334.js" />
     <Content Include="Scripts\ai.0.15.0-build58334.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <EntityDeploy Include="Models\SpartanCompany.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>SpartanCompany.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\SpartanCompany.edmx.diagram">
+      <DependentUpon>SpartanCompany.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -309,13 +341,16 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\Repos\Quartermaster\Quartermaster\Quartermaster\Quartermaster.csproj">
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Quartermaster\Quartermaster\Quartermaster\Quartermaster.csproj">
       <Project>{d5e2b2e0-7019-4de2-b434-2c817ae19538}</Project>
       <Name>Quartermaster</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
