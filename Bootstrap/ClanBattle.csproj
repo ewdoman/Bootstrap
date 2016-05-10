@@ -211,7 +211,6 @@
     <Compile Include="Controllers\HelloWorldController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
-    <Compile Include="Controllers\SpartansController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -221,25 +220,6 @@
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Scraper.cs" />
-    <Compile Include="Models\Spartan.cs">
-      <DependentUpon>SpartanCompanyModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\SpartanCompanyModel.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>SpartanCompanyModel.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\SpartanCompanyModel.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>SpartanCompanyModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\SpartanCompanyModel.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>SpartanCompanyModel.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="Models\ViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -250,29 +230,12 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="Models\SpartanCompanyModel.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>SpartanCompanyModel.edmx</DependentUpon>
-      <LastGenOutput>SpartanCompanyModel.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Models\SpartanCompanyModel.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>SpartanCompanyModel.edmx</DependentUpon>
-      <LastGenOutput>SpartanCompanyModel.cs</LastGenOutput>
-    </Content>
     <Content Include="Scripts\ai.0.15.0-build58334.js" />
     <Content Include="Scripts\ai.0.15.0-build58334.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <EntityDeploy Include="Models\SpartanCompanyModel.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>SpartanCompanyModel.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\SpartanCompanyModel.edmx.diagram">
-      <DependentUpon>SpartanCompanyModel.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -332,11 +295,6 @@
     <Content Include="Views\Clans\Results.cshtml" />
     <Content Include="Views\Home\Results.cshtml" />
     <Content Include="Views\Home\AwaitTest.cshtml" />
-    <Content Include="Views\Spartans\Create.cshtml" />
-    <Content Include="Views\Spartans\Delete.cshtml" />
-    <Content Include="Views\Spartans\Details.cshtml" />
-    <Content Include="Views\Spartans\Edit.cshtml" />
-    <Content Include="Views\Spartans\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

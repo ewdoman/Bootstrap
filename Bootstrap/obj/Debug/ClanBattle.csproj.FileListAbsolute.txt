@@ -87,3 +87,6 @@ C:\Users\doma8_000\Source\Local\Bootstrap\Bootstrap\bin\HtmlAgilityPack.xml
 C:\Users\doma8_000\Source\Local\Bootstrap\Bootstrap\obj\Debug\ClanBattle.csprojResolveAssemblyReference.cache
 C:\Users\doma8_000\Source\Local\Bootstrap\Bootstrap\obj\Debug\Bootstrap.dll
 C:\Users\doma8_000\Source\Local\Bootstrap\Bootstrap\obj\Debug\Bootstrap.pdb
+C:\Users\doma8_000\Source\Repos\Bootstrap\Bootstrap\obj\Debug\ClanBattle.csprojResolveAssemblyReference.cache
+C:\Users\doma8_000\Source\Repos\Bootstrap\Bootstrap\obj\Debug\Bootstrap.dll
+C:\Users\doma8_000\Source\Repos\Bootstrap\Bootstrap\obj\Debug\Bootstrap.pdb
