@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="spartancompaniesModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Spartan">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="gamertag" Type="varchar" MaxLength="16" Nullable="false" />
+    <Property Name="company" Type="varchar" MaxLength="32" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="spartancompaniesModelStoreContainer">
+    <EntitySet Name="Spartan" EntityType="Self.Spartan" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>
