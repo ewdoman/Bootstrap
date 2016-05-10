@@ -5,8 +5,8 @@ using System.Web;
 
 namespace Bootstrap.Models
 {
-    public class Scraper
+    public class ViewModel
     {
-
+        public string Name { set; get; }
     }
 }

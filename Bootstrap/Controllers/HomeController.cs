@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Bootstrap.Models;
+using Bootstrap.Helpers;
 using System.Threading.Tasks;
 
 namespace Bootstrap.Controllers
@@ -36,29 +37,32 @@ namespace Bootstrap.Controllers
 
             //take companyname and loop through players 
             List<string> gamertags = Quartermaster.Quartermaster.GetGamertagsForCompany(model.Name);
-            ViewBag.ProgList = gamertags;
-            ViewBag.Message = "Company: " + model.Name;
+            //ViewBag.ProgList = gamertags;
+            //ViewBag.Message = "Company: " + model.Name;
+            ViewBag.GamertagLabel = "Company: " + model.Name; 
 
             //****************************************
-
             System.Diagnostics.Debug.WriteLine("Main starting call");
-            Task results = Task.Run(() => HaloSharpHelper.printResults());
-            results.Wait();
-            System.Diagnostics.Debug.WriteLine("MAIN: This doesn't take long in main");
-            System.Diagnostics.Debug.WriteLine("MAIN: Here's some more logic while we wait");
-            System.Diagnostics.Debug.WriteLine("MAIN: Things are happening on a different thread");
-            System.Diagnostics.Debug.WriteLine("MAIN: Going to sleep for 3 seconds");
-            System.Threading.Thread.Sleep(3000);
-            System.Diagnostics.Debug.WriteLine("MAIN: Woke back up");
-            //results.Wait();
-            System.Diagnostics.Debug.WriteLine("Only print this at the end");
+            //Task finalresults = Task.Run(() => HaloSharpHelper.printResults());
+            List<string> finalresults = HaloSharpHelper.printResults();
+            //finalresults.Wait();
+            //System.Diagnostics.Debug.WriteLine("MAIN: This doesn't take long in main");
+            //System.Diagnostics.Debug.WriteLine("MAIN: Here's some more logic while we wait");
+            //System.Diagnostics.Debug.WriteLine("MAIN: Things are happening on a different thread");
+            //System.Diagnostics.Debug.WriteLine("MAIN: Going to sleep for 3 seconds");
+            //System.Threading.Thread.Sleep(3000);
+            //System.Diagnostics.Debug.WriteLine("MAIN: Woke back up");
+            ////results.Wait();
+            //System.Diagnostics.Debug.WriteLine("Only print this at the end");
 
+            foreach(var item in finalresults)
+            {
+                System.Diagnostics.Debug.WriteLine(item);
+            }
             //****************************************
 
-            //foreach (string member in gamertags)
-            //{
-            //}
-
+            //Set ViewBag list to gamertag match history IDs
+            ViewBag.ProgList = finalresults;
             return View();
         }
 

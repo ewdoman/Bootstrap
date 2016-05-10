@@ -11,22 +11,27 @@ using HaloSharp.Model;
 using HaloSharp.Query.Stats;
 using HaloSharp.Validation;
 
-namespace Bootstrap.Models
+namespace Bootstrap.Helpers
 {
     using Quartermaster;
     public class HaloSharpHelper
     {
 
-        public static async Task printResults()
-        {
-            List<string> results = new List<string>(100);
-            System.Diagnostics.Debug.WriteLine("printResults starting call");
-            results = await RunAsync();
+        public static List<string> matchIds { set; get; }
 
-            foreach (string id in results)
-            {
-                //Console.WriteLine(id);
-            }
+        public static List<string> printResults()
+        {
+            //List<string> results = new List<string>();
+            System.Diagnostics.Debug.WriteLine("printResults starting call");
+            Task otherresults = Task.Run(() => RunAsync());
+            otherresults.Wait();
+
+            //foreach (string id in results)
+            //{
+            //    //Console.WriteLine(id);
+            //}
+
+            return matchIds;
 
         }
 
@@ -36,7 +41,7 @@ namespace Bootstrap.Models
             string myGamertag = "Sn1p3r C";
             string spartanCompanyName = "UsingCheatCodes"; //"UsingCheatCodes";
             string developerKey = "bddabd5d05f54eb0993eddfdda59b8ac";
-            List<string> matchIds = new List<string>();
+            matchIds = new List<string>();
 
             //Obtain gamertags from website.
             List<string> gamertags = Quartermaster.GetGamertagsForCompany(spartanCompanyName);
@@ -77,9 +82,8 @@ namespace Bootstrap.Models
                     .InGameMode(Enumeration.GameMode.Arena)
                     .ForPlayer(member);
 
-                    System.Diagnostics.Debug.WriteLine("Before: await");
-                    var matchSet = await session.Query(query);
-                    System.Diagnostics.Debug.WriteLine("After: await");
+                        var matchSet = await session.Query(query);
+                        //System.Diagnostics.Debug.WriteLine("After: await");
 
                     foreach (var result in matchSet.Results)
                     {
@@ -98,4 +102,12 @@ namespace Bootstrap.Models
 
 
     }
-}
+}      
+             
+//try{
+
+//}
+//   catch (HaloSharp.Exception.HaloApiException e)
+//{
+//    System.Diagnostics.Debug.WriteLine("Error EXCEPTION");
+//}
