@@ -44,6 +44,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AWSSDK, Version=2.3.55.0, Culture=neutral, PublicKeyToken=9f476d3089b52be3, processorArchitecture=MSIL">
+      <HintPath>..\packages\AWSSDK.2.3.55.0\lib\net45\AWSSDK.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="HaloSharp, Version=1.5.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\HaloSharp.1.5.0.0\lib\net452\HaloSharp.dll</HintPath>
       <Private>True</Private>
@@ -212,28 +216,10 @@
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Clan.cs" />
-    <Compile Include="Helpers\HaloSharpHelper.cs" />
+    <Compile Include="Models\HaloSharpHelper.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
-    <Compile Include="Models\Spartan.cs">
-      <DependentUpon>SpartanCompanyModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\SpartanCompanyModel.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>SpartanCompanyModel.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\SpartanCompanyModel.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>SpartanCompanyModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\SpartanCompanyModel.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>SpartanCompanyModel.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="Models\ViewModel.cs" />
+    <Compile Include="Models\Scraper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -244,29 +230,12 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="Models\SpartanCompanyModel.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>SpartanCompanyModel.edmx</DependentUpon>
-      <LastGenOutput>SpartanCompanyModel.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Models\SpartanCompanyModel.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>SpartanCompanyModel.edmx</DependentUpon>
-      <LastGenOutput>SpartanCompanyModel.cs</LastGenOutput>
-    </Content>
     <Content Include="Scripts\ai.0.15.0-build58334.js" />
     <Content Include="Scripts\ai.0.15.0-build58334.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <EntityDeploy Include="Models\SpartanCompanyModel.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>SpartanCompanyModel.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\SpartanCompanyModel.edmx.diagram">
-      <DependentUpon>SpartanCompanyModel.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -325,6 +294,7 @@
     <Content Include="Views\Clans\Search.cshtml" />
     <Content Include="Views\Clans\Results.cshtml" />
     <Content Include="Views\Home\Results.cshtml" />
+    <Content Include="Views\Home\AwaitTest.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -339,13 +309,13 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\Quartermaster\Quartermaster\Quartermaster\Quartermaster.csproj">
+    <ProjectReference Include="..\..\..\Repos\Quartermaster\Quartermaster\Quartermaster\Quartermaster.csproj">
       <Project>{d5e2b2e0-7019-4de2-b434-2c817ae19538}</Project>
       <Name>Quartermaster</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
