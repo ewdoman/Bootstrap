@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="spartancompaniesModelStoreContainer" CdmEntityContainer="Entities">
+    <EntitySetMapping Name="Spartans">
+      <EntityTypeMapping TypeName="spartancompaniesModel.Spartan">
+        <MappingFragment StoreEntitySet="Spartan">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="gamertag" ColumnName="gamertag" />
+          <ScalarProperty Name="company" ColumnName="company" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
