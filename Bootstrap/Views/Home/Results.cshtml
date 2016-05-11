@@ -8,20 +8,16 @@
 
 @using (Html.BeginForm())
 {
-    <p>Clan Battle Results:</p>
-    @ViewBag.GamertagLabel
+    <p>Clan Battle Results</p>
 
-    <h3>Matches:</h3>
+    <p>@ViewBag.GamertagLabel</p>
+
+    <ul>
+        @foreach (var item in ViewBag.ProgList)
+        {
+            <li>@item</li>
+        }
+    </ul>
 }
-
-<ul>
-    @foreach (var item in ViewBag.ProgList)
-    {
-        <li>@item</li>
-    }
-</ul>
-
-
-
 
 
