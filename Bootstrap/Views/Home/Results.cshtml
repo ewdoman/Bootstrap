@@ -9,9 +9,8 @@
 @using (Html.BeginForm())
 {
     <p>Clan Battle Results</p>
-    @ViewBag.Message
 
-    <p>Members: </p>
+    <p>@ViewBag.GamertagLabel</p>
 
     <ul>
         @foreach (var item in ViewBag.ProgList)
