@@ -13,13 +13,6 @@ namespace Bootstrap.Controllers
     {
         public ActionResult Index()
         {
-            //TO DO: Search Logic goes here
-
-            //Search by gamertag
-
-            //Print Txt from - form
-            //ViewBag.Message = gamertag;
-
             return View(new ViewModel());
         }
 
@@ -33,18 +26,24 @@ namespace Bootstrap.Controllers
 
         public ActionResult Results(ViewModel model)
         {
-            //System.Diagnostics.Debug.WriteLine("Called overloaded method INDEX - {0} - Headered by [HttpPost], [ValidateAntiForgeryToken]", model.Name);
-
             //take companyname and loop through players 
-            List<string> gamertags = Quartermaster.Quartermaster.GetGamertagsForCompany(model.Name);
-            //ViewBag.ProgList = gamertags;
-            //ViewBag.Message = "Company: " + model.Name;
-            ViewBag.GamertagLabel = "Company: " + model.Name; 
+            //List<string> gamertags = Quartermaster.Quartermaster.GetGamertagsForCompany(model.Name);
+            List<MatchResultsModel> currentMatchResults = new List<MatchResultsModel>();
 
-            //****************************************
-            System.Diagnostics.Debug.WriteLine("Main starting call");
+            //View Debugging functions
+            //ViewBag.ProgList = gamertags;
+            //ViewBag.Message = model.Name;
+
+            ViewBag.GamertagLabel = "Player: " + model.Name; 
+
+            /**
+            /*    Search page main logic Begin
+            **/
+
+            //Async API call debug print statements
+            /**
+            //System.Diagnostics.Debug.WriteLine("Main starting call");
             //Task finalresults = Task.Run(() => HaloSharpHelper.printResults());
-            List<string> finalresults = HaloSharpHelper.printResults();
             //finalresults.Wait();
             //System.Diagnostics.Debug.WriteLine("MAIN: This doesn't take long in main");
             //System.Diagnostics.Debug.WriteLine("MAIN: Here's some more logic while we wait");
@@ -54,40 +53,26 @@ namespace Bootstrap.Controllers
             //System.Diagnostics.Debug.WriteLine("MAIN: Woke back up");
             ////results.Wait();
             //System.Diagnostics.Debug.WriteLine("Only print this at the end");
+            **/
 
-            foreach(var item in finalresults)
-            {
-                System.Diagnostics.Debug.WriteLine(item);
-            }
-            //****************************************
+            //Call HaloSharpHelper class to gather list of matchIds
+            List<MatchResultsModel> finalresults = HaloSharpHelper.printResults(model.Name, currentMatchResults);
+
+            //Write gamertag matchIds to debug console
+            //foreach (var item in finalresults)
+            //{
+            //    System.Diagnostics.Debug.WriteLine(item);
+            //}
 
             //Set ViewBag list to gamertag match history IDs
             ViewBag.ProgList = finalresults;
+
+            /**
+            /*    Search page main logic End
+            **/
+
             return View();
         }
-
-        //public ActionResult AwaitTest()
-        //{
-        //    Clan clan = new Clan();
-        //    return View(clan);
-        //}
-
-        //[HttpPost]
-        //public async Task<ActionResult> AwaitTest(Clan clan)
-        //{
-        //    bool saved = await SaveGameAsync(clan);
-        //    return View(clan);
-        //}
-
-        //public async Task<bool> SaveGameAsync(Clan clan)
-        //{
-        //    using (var db = ApplicationDbContext.Create())
-        //    {
-        //        db.Games.Add(game);
-        //        return await db.SaveChangesAsync() > 0;
-        //    }
-        //}
-
 
         public ActionResult About()
         {

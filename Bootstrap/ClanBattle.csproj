@@ -212,27 +212,27 @@
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Clan.cs" />
-    <Compile Include="Models\HaloSharpHelper.cs" />
+    <Compile Include="Helpers\HaloSharpHelper.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
-    <Compile Include="Models\Scraper.cs" />
+    <Compile Include="Models\MatchResultsModel.cs" />
     <Compile Include="Models\Spartan.cs">
-      <DependentUpon>SpartanCompany.tt</DependentUpon>
+      <DependentUpon>SpartanCompanyModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\SpartanCompany.Context.cs">
+    <Compile Include="Models\SpartanCompanyModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>SpartanCompany.Context.tt</DependentUpon>
+      <DependentUpon>SpartanCompanyModel.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\SpartanCompany.cs">
+    <Compile Include="Models\SpartanCompanyModel.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>SpartanCompany.tt</DependentUpon>
+      <DependentUpon>SpartanCompanyModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\SpartanCompany.Designer.cs">
+    <Compile Include="Models\SpartanCompanyModel.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>SpartanCompany.edmx</DependentUpon>
+      <DependentUpon>SpartanCompanyModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\ViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -245,15 +245,15 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="Models\SpartanCompany.Context.tt">
+    <Content Include="Models\SpartanCompanyModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>SpartanCompany.edmx</DependentUpon>
-      <LastGenOutput>SpartanCompany.Context.cs</LastGenOutput>
+      <DependentUpon>SpartanCompanyModel.edmx</DependentUpon>
+      <LastGenOutput>SpartanCompanyModel.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Models\SpartanCompany.tt">
+    <Content Include="Models\SpartanCompanyModel.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>SpartanCompany.edmx</DependentUpon>
-      <LastGenOutput>SpartanCompany.cs</LastGenOutput>
+      <DependentUpon>SpartanCompanyModel.edmx</DependentUpon>
+      <LastGenOutput>SpartanCompanyModel.cs</LastGenOutput>
     </Content>
     <Content Include="Scripts\ai.0.15.0-build58334.js" />
     <Content Include="Scripts\ai.0.15.0-build58334.min.js" />
@@ -262,12 +262,12 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <EntityDeploy Include="Models\SpartanCompany.edmx">
+    <EntityDeploy Include="Models\SpartanCompanyModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>SpartanCompany.Designer.cs</LastGenOutput>
+      <LastGenOutput>SpartanCompanyModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="Models\SpartanCompany.edmx.diagram">
-      <DependentUpon>SpartanCompany.edmx</DependentUpon>
+    <Content Include="Models\SpartanCompanyModel.edmx.diagram">
+      <DependentUpon>SpartanCompanyModel.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -326,7 +326,6 @@
     <Content Include="Views\Clans\Search.cshtml" />
     <Content Include="Views\Clans\Results.cshtml" />
     <Content Include="Views\Home\Results.cshtml" />
-    <Content Include="Views\Home\AwaitTest.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -342,9 +341,6 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
-  </ItemGroup>
-  <ItemGroup>
-    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Quartermaster\Quartermaster\Quartermaster\Quartermaster.csproj">
