@@ -30,6 +30,6 @@ namespace Bootstrap.Models
             return new ApplicationDbContext();
         }
 
-        public System.Data.Entity.DbSet<Bootstrap.Models.Spartan> Spartans { get; set; }
+        //public System.Data.Entity.DbSet<Bootstrap.Models.Spartan> Spartans { get; set; }
     }
 }
