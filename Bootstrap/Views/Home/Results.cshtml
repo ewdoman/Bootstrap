@@ -15,7 +15,10 @@
     <ul>
         @foreach (var item in ViewBag.ProgList)
         {
-            <li>@item</li>
+            <li>@item.MatchDate</li>
+            <li>Map ID: @item.Map</li>
+            <li>Game Mode: @item.GameMode</li>
+            <li>Game Variant: @item.GameVariant</li>
         }
     </ul>
 }
