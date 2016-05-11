@@ -14,11 +14,10 @@
 
     <ul>
         @foreach (var item in ViewBag.ProgList)
-        {
-            <li>@item.MatchDate</li>
-            <li>Map ID: @item.Map</li>
-            <li>Game Mode: @item.GameMode</li>
-            <li>Game Variant: @item.GameVariant</li>
+        {            
+               <li>
+                   <div class="well">@item.MatchDate - Map ID: @item.Map - Game Mode: @item.GameMode - Game Variant: @item.GameVariant </div>
+               </li>
         }
     </ul>
 }
