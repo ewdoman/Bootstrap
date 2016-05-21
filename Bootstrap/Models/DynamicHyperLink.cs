@@ -5,9 +5,9 @@ using System.Web;
 
 namespace Bootstrap.Models
 {
-    public class ViewModel
+    public class DynamicHyperLink
     {
-        public string Gamertag { set; get; }
-        public string Company { set; get; }
+        public string Text { get; set; }
+        public string Link { get; set; }
     }
 }

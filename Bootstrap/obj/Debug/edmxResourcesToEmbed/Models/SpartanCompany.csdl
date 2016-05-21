@@ -1,5 +1,26 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="spartancompaniesModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Battle">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="matchID" Type="String" MaxLength="32" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="gamemode" Type="Int32" Nullable="false" />
+    <Property Name="gamevariant" Type="String" MaxLength="32" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="mapname" Type="String" MaxLength="32" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="mapvariant" Type="String" MaxLength="32" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="matchdate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="matchduration" Type="Time" Nullable="false" Precision="7" />
+    <Property Name="a_company" Type="String" MaxLength="32" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="b_company" Type="String" MaxLength="32" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="a_score" Type="Int32" Nullable="false" />
+    <Property Name="b_score" Type="Int32" Nullable="false" />
+    <Property Name="a_mvp" Type="String" MaxLength="16" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="b_mvp" Type="String" MaxLength="16" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="a_win" Type="Binary" MaxLength="50" FixedLength="true" Nullable="false" />
+    <Property Name="b_win" Type="Binary" MaxLength="50" FixedLength="true" Nullable="false" />
+  </EntityType>
   <EntityType Name="Spartan">
     <Key>
       <PropertyRef Name="ID" />
@@ -9,6 +30,7 @@
     <Property Name="company" Type="String" MaxLength="32" FixedLength="false" Unicode="false" Nullable="false" />
   </EntityType>
   <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Battles" EntityType="Self.Battle" />
     <EntitySet Name="Spartans" EntityType="Self.Spartan" />
   </EntityContainer>
 </Schema>

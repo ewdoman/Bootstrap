@@ -1,4 +1,6 @@
-﻿@model Bootstrap.Models.ViewModel
+﻿@*@model List<Bootstrap.Models.MatchResultsModel>*@
+@*@model Bootstrap.Models.ViewModel*@
+@model IEnumerable<Bootstrap.Models.v_Battle>
 
 @{
     ViewBag.Title = "Results";
@@ -10,16 +12,68 @@
 {
     <p>Clan Battle Results</p>
 
-    <p>@ViewBag.GamertagLabel</p>
+    <p>
+        @ViewBag.gamertagLabel
+    </p>
+    <p>
+        @ViewBag.companyLabel
+    </p>
 
-    <ul>
-        @foreach (var item in ViewBag.ProgList)
-        {            
-               <li>
-                   <div class="well">@item.MatchDate - Map ID: @item.Map - Game Mode: @item.GameMode - Game Variant: @item.GameVariant </div>
-               </li>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.matchID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.matchdate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.a_company)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.matchID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.matchdate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.a_company) vs @Html.DisplayFor(modelItem => item.b_company)
+                </td>
+            </tr>
         }
-    </ul>
-}
+
+    </table>
+
+
+        @*<p>
+                @Html.DisplayNameFor(model => model.Gamertag):
+                @Html.DisplayFor(modelItem => Model.Gamertag)
+            </p>
+
+            <p>
+                @Html.DisplayNameFor(model => model.Company):
+                @Html.DisplayFor(modelItem => Model.Company)
+            </p>*@
+
+        @*<ul>
+                @foreach (var item in ViewBag.ProgList)
+                {
+                       <li>
+                           <div class="well">
+                           <p>MatchID: @item</p>
+                            @Html.ActionLink("MatchResults", "MatchResults", "Home", new { item })
+                           @Html.ActionLink("MatchResults", "MatchResults", "Home", new { id=item.MatchId})
+                           @item.MatchDate - Map ID: @item.Map - Game Mode: @item.GameMode - Game Variant: @item.GameVariant
+                           </div>
+                       </li>
+                }
+            </ul>*@
+        }
 
 

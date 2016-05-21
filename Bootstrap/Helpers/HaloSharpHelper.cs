@@ -98,7 +98,7 @@ namespace Bootstrap.Helpers
                         System.Diagnostics.Debug.WriteLine("MatchDuration: " + result.MatchDuration);
                         System.Diagnostics.Debug.WriteLine("MatchCompletedDate: " + result.MatchCompletedDate.ISO8601Date);
 
-                        currentMatchResults.Add(new MatchResultsModel(result.MapId.ToString(), result.Id.GameMode.ToString(), result.MapVariant.ResourceId.ToString(), result.MatchCompletedDate.ISO8601Date)); 
+                        currentMatchResults.Add(new MatchResultsModel(result.Id.MatchId.ToString(), result.MapId.ToString(), result.Id.GameMode.ToString(), result.MapVariant.ResourceId.ToString(), result.MatchCompletedDate.ISO8601Date)); 
 
                         System.Diagnostics.Debug.WriteLine("***Team***");
                         foreach (var team in result.Teams)

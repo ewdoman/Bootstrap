@@ -11,6 +11,9 @@ namespace Bootstrap.Controllers
 {
     public class HomeController : Controller
     {
+        private Quartermaster.Models.Spartan spartandb = new Quartermaster.Models.Spartan();
+        private BattleModel battlemodeldb = new BattleModel();
+
         public ActionResult Index()
         {
             return View(new ViewModel());
@@ -19,22 +22,18 @@ namespace Bootstrap.Controllers
         [HttpPost]
         public ActionResult Index(ViewModel model)
         {
-            System.Diagnostics.Debug.WriteLine("Index Action Result Called", model.Name);
+            System.Diagnostics.Debug.WriteLine("Index Action Result Called", model.Gamertag);
             return RedirectToAction("Results", model);
             //return View();
         }
 
         public ActionResult Results(ViewModel model)
         {
-            //take companyname and loop through players 
-            //List<string> gamertags = Quartermaster.Quartermaster.GetGamertagsForCompany(model.Name);
-            List<MatchResultsModel> currentMatchResults = new List<MatchResultsModel>();
 
-            //View Debugging functions
-            //ViewBag.ProgList = gamertags;
-            //ViewBag.Message = model.Name;
+            model.Company = Quartermaster.Quartermaster.GetSpartanCompanyFromGamertag(model.Gamertag);
 
-            ViewBag.GamertagLabel = "Player: " + model.Name; 
+            ViewBag.gamertagLabel = "GAMERTAG:" + model.Gamertag;
+            ViewBag.companyLabel = "COMPANY: " + model.Company;
 
             /**
             /*    Search page main logic Begin
@@ -55,23 +54,28 @@ namespace Bootstrap.Controllers
             //System.Diagnostics.Debug.WriteLine("Only print this at the end");
             **/
 
-            //Call HaloSharpHelper class to gather list of matchIds
-            List<MatchResultsModel> finalresults = HaloSharpHelper.printResults(model.Name, currentMatchResults);
-
-            //Write gamertag matchIds to debug console
-            //foreach (var item in finalresults)
-            //{
-            //    System.Diagnostics.Debug.WriteLine(item);
-            //}
-
-            //Set ViewBag list to gamertag match history IDs
-            ViewBag.ProgList = finalresults;
+            //Create LINQ query
+            var battleQry = from cb in battlemodeldb.v_Battle
+                        where cb.a_company == model.Company || cb.b_company == model.Company
+                        select cb;
 
             /**
             /*    Search page main logic End
             **/
 
-            return View();
+            //Call HaloSharpHelper class to gather list of matchIds
+            //List<MatchResultsModel> finalresults = HaloSharpHelper.printResults(model.Gamertag, currentMatchResults);
+
+            //Set ViewBag list to gamertag match history IDs
+            //ViewBag.ProgList = ClanBattleListHelper.GetListofClanBattlesFromCompany(model.Company);
+
+            //return View(battlemodeldb.v_Battle.ToList());
+            return View(battleQry);
+        }
+
+        public ActionResult MatchResults(string matchid)
+        {
+            return View(matchid);
         }
 
         public ActionResult About()

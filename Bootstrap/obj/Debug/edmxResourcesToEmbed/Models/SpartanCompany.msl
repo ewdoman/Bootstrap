@@ -1,6 +1,28 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="spartancompaniesModelStoreContainer" CdmEntityContainer="Entities">
+    <EntitySetMapping Name="Battles">
+      <EntityTypeMapping TypeName="spartancompaniesModel.Battle">
+        <MappingFragment StoreEntitySet="Battle">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="matchID" ColumnName="matchID" />
+          <ScalarProperty Name="gamemode" ColumnName="gamemode" />
+          <ScalarProperty Name="gamevariant" ColumnName="gamevariant" />
+          <ScalarProperty Name="mapname" ColumnName="mapname" />
+          <ScalarProperty Name="mapvariant" ColumnName="mapvariant" />
+          <ScalarProperty Name="matchdate" ColumnName="matchdate" />
+          <ScalarProperty Name="matchduration" ColumnName="matchduration" />
+          <ScalarProperty Name="a_company" ColumnName="a_company" />
+          <ScalarProperty Name="b_company" ColumnName="b_company" />
+          <ScalarProperty Name="a_score" ColumnName="a_score" />
+          <ScalarProperty Name="b_score" ColumnName="b_score" />
+          <ScalarProperty Name="a_mvp" ColumnName="a_mvp" />
+          <ScalarProperty Name="b_mvp" ColumnName="b_mvp" />
+          <ScalarProperty Name="a_win" ColumnName="a_win" />
+          <ScalarProperty Name="b_win" ColumnName="b_win" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="Spartans">
       <EntityTypeMapping TypeName="spartancompaniesModel.Spartan">
         <MappingFragment StoreEntitySet="Spartan">
