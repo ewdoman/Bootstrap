@@ -1,0 +1,68 @@
+﻿body {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.428571429;
+  color: #ffffff;
+  background-color: #111111;
+}
+
+.jumbotron {
+    padding: 200px 50px;
+    color: #ffffff;
+    background: url('redvsbluewarhomeimage2.jpg'); 
+    background-repeat: no-repeat;
+    background-size: inherit;
+    background-position: center;
+
+    margin: auto;
+    display: block;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.jumbotron h1 {
+  line-height: 1;
+  color: #ffffff;
+}
+
+.jumbotron p {
+  line-height: 1.4;
+}
+
+.container .jumbotron {
+  border-radius: 0px;
+}
+
+@media screen and (min-width: 786px) {
+    .jumbotron {
+        padding-top: 100px;
+        padding-bottom: 100px;
+    }
+
+    .container .jumbotron {
+        padding-right: 100px;
+        padding-left: 100px;
+    }
+
+    .jumbotron h1 {
+        font-size: 80px;
+    }
+}
+
+@media screen and (max-width: 786px) {
+    .jumbotron {
+        padding-top: 100px;
+        padding-bottom: 100px;
+    }
+
+    .container .jumbotron {
+        padding-right: 100px;
+        padding-left: 100px;
+    }
+
+    .jumbotron h1 {
+        font-size: 40px;
+    }
+}

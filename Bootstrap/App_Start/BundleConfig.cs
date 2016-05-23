@@ -26,6 +26,7 @@ namespace Bootstrap
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
+                      "~/Content/clanbattlesite.css",
                       "~/Content/site.css"));
         }
     }

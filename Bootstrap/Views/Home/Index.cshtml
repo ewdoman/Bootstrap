@@ -7,45 +7,40 @@
 
 @using (Html.BeginForm())
 {
-    <div class="jumbotron hidden:sm">
-        @*jumbotron is another bootstrap conponent - styles content - "hidden-sm" at end hides element on small devices or "visible-lg" visible on large devices*@
-        <h1><center> Clan Battle </center></h1>
-        <p class="lead">Clan Battle is an MVC 6 Web Application that allows you to access vital information for your Halo Clan's Success</p>
 
-        <center>
-            <div class="form-horizontal">
-                <div class="form-group">
-                    @*@Html.LabelFor(model => model.Company, htmlAttributes: new { @class = "control-label col-md-0" })*@
-                    <center>
-                        <h3>Enter Company name or Gamertag</h3>
-                    </center>
-                    <div class="col-md-12">
+    @*jumbotron is another bootstrap conponent - styles content - "hidden-sm" at end hides element on small devices or "visible-lg" visible on large devices*@
+    <div class="jumbotron hidden:sm text-center">
 
-                        @*
-                            Uses a seperate class model called ViewModel to store a string             
-                        *@
+        <h1> Clash of Companies </h1>
+        <p class="lead">Clan Battle is an MVC 6 Web Application that allows you to access vital information for your Halo Clan's Success</p>           
+        <h2> Enter a Gamertag: </h2>
+        <center><input type="text" class="form-control" placeholder="Gamertag" id="Gamertag" name="Gamertag" value="" /></center>
+        <button class="btn btn-danger btn-lg btn-block" type="button">Search</button>
 
-                        @*@Html.TextBoxFor(s => s.Name, new { htmlAttributes = new { @class = "form-control" } })*@
-                        @*<input type="submit" value="Check Text" />*@
-                        @Html.EditorFor(s => s.Gamertag, new { htmlAttributes = new { @class = "form-control" } })
-                        @*@Html.ValidationMessageFor(model => model.Company, "", new { @class = "text-danger" })*@
-                    </div>
-        </center>
-
-        <center>
-            <div class="form-group">
-                <div class="col-md-offset-0 col-md-12">
-                    @*
-                        Clicking this form takes the value in the above TextBoxFor(),
-                        stores the text in the strongly typed model, and "submits" it 
-                        performing a POST action which calls the controllers overloaded Index() marked with [HttpPost] 
-                        ultimately calling the Index Controller logic.
-                    *@
-                    <input type="submit" value="Search" class="btn btn-default" />
-                </div>
-            </div>
-        </center>
-
-        <p><center><a href="http://asp.net" class="btn btn-primary btn-lg">Learn more, yaa crazy Dutch bastard &raquo;</a></center></p>
     </div>
+    @*
+        Clicking the form takes the value in the above TextBoxFor(),
+        stores the text in the strongly typed model, and "submits" it
+        performing a POST action which calls the controllers overloaded Index() marked with [HttpPost]
+        ultimately calling the Index Controller logic.
+    *@
+
+    @*
+
+        Following code creates an input group (button attached to the input form), however
+        the space formatting renders it disconnected and offsetting at various responsive resolutions.
+
+        TODO: look into bootstrap responsive design to fix issues^
+
+        <div class="row">
+            <div class="input-group">
+                <span class="input-group-btn">
+                    <button class="btn btn-danger" type="button">Search</button>
+                </span>
+                <input type="text" class="form-control" placeholder="Gamertag" id="Gamertag" name="Gamertag" value="" />
+            </div>
+        </div>
+        *@
+
+    @*<p><center><a href="http://asp.net" class="btn btn-primary btn-lg">Learn more, yaa crazy Dutch bastard &raquo;</a></center></p>*@
 }
