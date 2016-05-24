@@ -31,9 +31,12 @@ namespace Bootstrap.Controllers
         {
 
             model.Company = Quartermaster.Quartermaster.GetSpartanCompanyFromGamertag(model.Gamertag);
+            string[] gameModeNames = { "Error", "Arena", "Campaign", "Custom", "Warzone" };
 
-            ViewBag.gamertagLabel = "GAMERTAG:" + model.Gamertag;
-            ViewBag.companyLabel = "COMPANY: " + model.Company;
+            ViewBag.gamertagLabel = model.Gamertag;
+            ViewBag.companyLabel = model.Company;
+
+            ViewBag.gameModeNameArray = gameModeNames;
 
             /**
             /*    Search page main logic Begin

@@ -1,55 +1,119 @@
 ﻿@*@model List<Bootstrap.Models.MatchResultsModel>*@
 @*@model Bootstrap.Models.ViewModel*@
+
 @model IEnumerable<Bootstrap.Models.v_Battle>
 
 @{
     ViewBag.Title = "Results";
 }
 
-<h2>Results</h2>
+<h2>Company Battle Results For: </h2>
 
 @using (Html.BeginForm())
 {
-    <p>Clan Battle Results</p>
 
-    <p>
-        @ViewBag.gamertagLabel
-    </p>
-    <p>
-        @ViewBag.companyLabel
-    </p>
+    <h3>@Html.ActionLink((string)ViewBag.companyLabel, "Index", "Home")</h3>
 
-    <table class="table">
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.matchID)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.matchdate)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.a_company)
-            </th>
-            <th></th>
-        </tr>
+    <p>@ViewBag.gamertagLabel</p>
+    <p>@ViewBag.companyLabel</p>
 
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.matchID)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.matchdate)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.a_company) vs @Html.DisplayFor(modelItem => item.b_company)
-                </td>
-            </tr>
-        }
+    <p>Members</p>
 
-    </table>
+    foreach (var item in Model)
+    {
+        <div class="matchwell">
+            <div class="container">
+                <div class="row-fluid">
 
+                    <div class="col-md-4" style="padding-right:20px; border-right: 2px inset #ccc;">
+                        <p>@ViewBag.gameModeNameArray[item.gamemode]</p>                     
+                        <p>@Html.DisplayFor(modelItem => item.gamevariant)</p>
+                        <p>@Html.DisplayFor(modelItem => item.mapname) - @Html.DisplayFor(modelItem => item.mapvariant)</p>
+                        <p>@Html.DisplayFor(modelItem => item.matchdate)</p>
+                    </div>
+
+                    <div class="col-md-4" style="padding-right:20px; border-right: 2px inset #ccc;">
+
+                        @if (item.a_win[0] == 0x01)
+                        {
+                            <p>Winner: @Html.DisplayFor(modelItem => item.a_company)</p>
+                        }
+                        else
+                        {
+                            <p>Winner: @Html.DisplayFor(modelItem => item.b_company)</p>
+                        }
+
+                        <div class="row clearfix"> 
+                            <div class="span_4 column" style="background-color:#442222">
+                                <p>@Html.DisplayFor(modelItem => item.a_company)</p>
+                                <p>@Html.DisplayFor(modelItem => item.a_score)</p>
+                            </div>
+
+                            <div class="span_4 column" style="background-color:#222244">
+                                <p>@Html.DisplayFor(modelItem => item.b_company)</p>
+                                <p>@Html.DisplayFor(modelItem => item.b_score)</p>
+                            </div>
+
+                                <p>@Html.DisplayFor(modelItem => item.matchduration)</p>
+
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <p>@Html.DisplayFor(modelItem => item.matchID)</p>
+                        <h2>@Html.ActionLink("Battle Details", "MatchResults", "Home", item.matchID)</h2>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    }
+
+   @*
+                               <div style="overflow:auto;width:90%;">
+                            <div style="background-color:#442244; width:200px">
+                                <p>
+                                    <div style="display:inline-block;width:100px;background-color:#442222"> @Html.DisplayFor(modelItem => item.a_company) </div>
+                                    <div style="display:inline-block;width:100px;background-color:#222244"> @Html.DisplayFor(modelItem => item.b_company) </div>
+                                </p>
+
+
+
+                                       <div class="row-fluid" style="background-color:#442222"> @Html.DisplayFor(modelItem => item.a_company) </div> vs
+                                <div class="row-fluid" style="background-color:#222244"> @Html.DisplayFor(modelItem => item.b_company) </div>
+
+        <div class="col-md-4">
+        <table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.matchID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.matchdate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.a_company)
+        </th>
+    </tr>
+
+            @foreach (var item in Model)
+            {
+                <div class="matchwell">@Html.DisplayFor(modelItem => item.matchID)</div>
+
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.matchID)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.matchdate)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.a_company) vs @Html.DisplayFor(modelItem => item.b_company)
+                            </td>
+                        </tr>
+             }
+
+    </table>*@
 
         @*<p>
                 @Html.DisplayNameFor(model => model.Gamertag):
@@ -74,6 +138,6 @@
                        </li>
                 }
             </ul>*@
-        }
+}
 
 

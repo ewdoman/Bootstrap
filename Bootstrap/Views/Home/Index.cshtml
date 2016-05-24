@@ -14,10 +14,14 @@
         <h1> Clash of Companies </h1>
         <p class="lead">Clan Battle is an MVC 6 Web Application that allows you to access vital information for your Halo Clan's Success</p>           
         <h2> Enter a Gamertag: </h2>
-        <center><input type="text" class="form-control" placeholder="Gamertag" id="Gamertag" name="Gamertag" value="" /></center>
-        <button class="btn btn-danger btn-lg btn-block" type="button">Search</button>
+
+        <form class="form-inline" role="form">
+            <center><input type="text" class="form-control" placeholder="Gamertag" id="Gamertag" name="Gamertag" value="" /></center>
+            <button class="btn btn-danger btn-lg" type="submit"> Search </button>
+        </form>
 
     </div>
+
     @*
         Clicking the form takes the value in the above TextBoxFor(),
         stores the text in the strongly typed model, and "submits" it
