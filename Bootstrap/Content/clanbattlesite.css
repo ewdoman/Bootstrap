@@ -92,3 +92,33 @@
   padding: 9px;
   border-radius: 3px;
 }
+
+/*Customer container for battle details page*/
+
+.bd_container {
+  align-content: center;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.bd_container:before,
+.bd_container:after {
+  display: table;
+  content: " ";
+}
+
+.bd_container:after {
+  clear: both;
+}
+
+.bd_container:before,
+.bd_container:after {
+  display: table;
+  content: " ";
+}
+
+.bd_container:after {
+  clear: both;
+}

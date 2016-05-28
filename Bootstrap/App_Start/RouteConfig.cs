@@ -17,6 +17,7 @@ namespace Bootstrap
                 name: "Default",
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+                //http://localhost:50565/Home/Results?Gamertag=Solo%20Archer
             );
         }
     }

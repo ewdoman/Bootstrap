@@ -1,0 +1,96 @@
+﻿@model Bootstrap.Models.v_Battle
+
+@{
+    ViewBag.Title = "Battle Details";
+}
+
+<h2>MatchResults Page</h2>
+
+@using (Html.BeginForm())
+{
+    <h1><center>Clan Battle Details</center></h1>
+
+    <div class="row" style="background-color:#553355">
+
+        <h2>Match Overview</h2>
+
+        <div class="col-md-4" style="padding-right:20px; border-right: 2px inset #ccc;">
+            @*<p>@ViewBag.gameModeNameArray[Model.gamemode]</p>*@
+            <p>@Html.DisplayFor(Model => Model.gamevariant)</p>
+            <p>@Html.DisplayFor(Model => Model.mapname) - @Html.DisplayFor(Model => Model.mapvariant)</p>
+            <p>@Html.DisplayFor(Model => Model.matchdate)</p>
+        </div>
+
+        <div class="col-md-4" style="padding-right:20px; border-right: 2px inset #ccc;">
+            @if (Model.a_score > Model.b_score)
+            {
+                <p>Winner: @Html.DisplayFor(Model => Model.a_company)</p>
+            }
+            else
+            {
+                <p>Winner: @Html.DisplayFor(Model => Model.b_company)</p>
+            }
+
+            <div class="row clearfix">
+                <div class="span_4 column" style="background-color:#442222">
+                    <p>@Html.DisplayFor(Model => Model.a_company)</p>
+                    <p>@Html.DisplayFor(Model => Model.a_score)</p>
+                </div>
+
+                <div class="span_4 column" style="background-color:#222244">
+                    <p>@Html.DisplayFor(Model => Model.b_company)</p>
+                    <p>@Html.DisplayFor(Model => Model.b_score)</p>
+                </div>
+
+                <p>@Html.DisplayFor(Model => Model.matchduration)</p>
+            </div>
+
+        </div>
+
+        <div class="col-md-4" style="padding-right:20px; border-right: 2px inset #ccc;">
+            <p>Testing functionality</p>
+        </div>
+
+    </div>
+
+    <div class="row" style="background-color:#553333">
+        <h2>Player Overview</h2>
+        <div class="table-bordered" style="background-color:#442222">
+            <table class="table">
+                <center>
+                        <tr>
+                            <th>
+                               <h2>Red Team</h2>
+                                @foreach(var item in ViewBag.PlayerStatsList)
+                                {
+                                    <p>@item.playerName</p>
+                                }
+                            </th>
+                            <th>
+                                <h2>Blue Team</h2>
+                            </th>
+                        </tr>
+                </center>
+            </table>
+         </div>
+    </div>
+
+    <div class="row" style="background-color:#333355">
+        <h2>K/D Graph</h2>
+        @*graph javascript goes here*@
+        @{Html.RenderPartial("GraphPartial");}
+
+    </div>
+
+    @*<div class="form-group">
+        @Html.LabelFor(model => model.MatchId, htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.LabelFor(model => model.GameVariant, htmlAttributes: new { @class = "control-label col-md-2" })
+    </div>*@
+
+    @*foreach (var item in Model)
+    {
+        <div class="well">
+            @item.MatchDate - Map ID: @item.Map - Game Mode: @item.GameMode - Game Variant: @item.GameVariant
+        </div>
+    }*@
+}

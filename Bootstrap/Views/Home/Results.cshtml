@@ -11,7 +11,6 @@
 
 @using (Html.BeginForm())
 {
-
     <h3>@Html.ActionLink((string)ViewBag.companyLabel, "Index", "Home")</h3>
 
     <p>@ViewBag.gamertagLabel</p>
@@ -25,14 +24,14 @@
             <div class="container">
                 <div class="row-fluid">
 
-                    <div class="col-md-4" style="padding-right:20px; border-right: 2px inset #ccc;">
+                    <div class="col-md-4" style="padding-right:30px; border-right: 2px solid #ccc;">
                         <p>@ViewBag.gameModeNameArray[item.gamemode]</p>                     
                         <p>@Html.DisplayFor(modelItem => item.gamevariant)</p>
                         <p>@Html.DisplayFor(modelItem => item.mapname) - @Html.DisplayFor(modelItem => item.mapvariant)</p>
                         <p>@Html.DisplayFor(modelItem => item.matchdate)</p>
                     </div>
 
-                    <div class="col-md-4" style="padding-right:20px; border-right: 2px inset #ccc;">
+                    <div class="col-md-4" style="padding-right:30px; border-right: 2px solid #ccc;">
 
                         @if (item.a_win[0] == 0x01)
                         {
@@ -61,7 +60,7 @@
 
                     <div class="col-md-4">
                         <p>@Html.DisplayFor(modelItem => item.matchID)</p>
-                        <h2>@Html.ActionLink("Battle Details", "MatchResults", "Home", item.matchID)</h2>
+                        <h2>@Html.ActionLink("Battle Details", "BattleDetails", "Home", new { model = item.matchID }, null)</h2>
                     </div>
 
                 </div>

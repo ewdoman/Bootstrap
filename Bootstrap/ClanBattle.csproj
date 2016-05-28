@@ -211,6 +211,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Helpers\ClanBattleListHelper.cs" />
+    <Compile Include="Helpers\HaloSharpQuery.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\DBModels\BattleModel.cs" />
     <Compile Include="Models\Clan.cs" />
@@ -219,6 +220,7 @@
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\MatchResultsModel.cs" />
+    <Compile Include="Models\PlayerStats.cs" />
     <Compile Include="Models\ViewModel.cs" />
     <Compile Include="Models\DBModels\v_Battle.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -297,7 +299,8 @@
     <Content Include="Views\Clans\Search.cshtml" />
     <Content Include="Views\Clans\Results.cshtml" />
     <Content Include="Views\Home\Results.cshtml" />
-    <Content Include="Views\Home\MatchResults.cshtml" />
+    <Content Include="Views\Home\BattleDetails.cshtml" />
+    <Content Include="Views\Home\GraphPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

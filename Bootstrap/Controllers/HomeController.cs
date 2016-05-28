@@ -24,7 +24,6 @@ namespace Bootstrap.Controllers
         {
             System.Diagnostics.Debug.WriteLine("Index Action Result Called", model.Gamertag);
             return RedirectToAction("Results", model);
-            //return View();
         }
 
         public ActionResult Results(ViewModel model)
@@ -57,7 +56,7 @@ namespace Bootstrap.Controllers
             //System.Diagnostics.Debug.WriteLine("Only print this at the end");
             **/
 
-            //Create LINQ query
+            //Create LINQ query for AWS db
             var battleQry = from cb in battlemodeldb.v_Battle
                         where cb.a_company == model.Company || cb.b_company == model.Company
                         select cb;
@@ -66,19 +65,27 @@ namespace Bootstrap.Controllers
             /*    Search page main logic End
             **/
 
-            //Call HaloSharpHelper class to gather list of matchIds
-            //List<MatchResultsModel> finalresults = HaloSharpHelper.printResults(model.Gamertag, currentMatchResults);
-
-            //Set ViewBag list to gamertag match history IDs
-            //ViewBag.ProgList = ClanBattleListHelper.GetListofClanBattlesFromCompany(model.Company);
-
             //return View(battlemodeldb.v_Battle.ToList());
             return View(battleQry);
         }
 
-        public ActionResult MatchResults(string matchid)
+        public ActionResult BattleDetails(string model)
         {
-            return View(matchid);
+            string[] gameModeNames = { "Error", "Arena", "Campaign", "Custom", "Warzone" };
+            ViewBag.gameModeNameArray = gameModeNames;
+
+            //TODO: Optimize Query
+            var matchQry = (from cb in battlemodeldb.v_Battle
+                            where cb.matchID == model
+                            select cb).SingleOrDefault();
+
+            //Task finalresults = Task.Run(() => HaloSharpQuery.HaloApiGetPlayerStats(model));
+            //finalresults.Wait();
+
+            ViewBag.PlayerStatsList = HaloSharpQuery.HaloApiGetPlayerStats(model);
+            //List<PlayerStats> test = new List<PlayerStats>();
+
+            return View(matchQry);
         }
 
         public ActionResult About()
