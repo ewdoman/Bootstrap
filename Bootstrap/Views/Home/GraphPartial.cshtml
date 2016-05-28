@@ -5,3 +5,110 @@
 
 <h2>GraphPartial</h2>
 
+<script type="text/javascript">
+     /**
+     * Use addInitHandler to do operations on the chart object
+     * before it is drawn
+     */
+
+    //AmCharts.addInitHandler(function (chart) {
+    //    // cycle through all data points and assign color per Y value
+    //    for (var x in chart.dataProvider) {
+    //        var dp = chart.dataProvider[x];
+    //        if (dp.kills > 2)
+    //            dp.color = "#ff0000";
+    //        else if (dp.kills > -2)
+    //            dp.color = "#fff000";
+    //        else
+    //            dp.color = "#00ff00";
+    //    }
+    //}, ['serial'] );
+
+    AmCharts.ready(function () {
+
+        //alert('page loaded');
+
+	    // chart code will go here
+	    var chartData = [{
+	        "time": "5",
+	        "kills": 2,
+            "bullet": "circle",
+            "color" : "#dd0000"
+	    }, {
+	        "time": "10",
+	        "kills": 0,
+	        "bullet": "circle",
+            "color" : "#888888"
+	    }, {
+	        "time": "15",
+	        "kills": -3,
+            "bullet": "circle",
+            "color": "#0000dd"
+	    }, {
+	        "time": "17",
+	        "kills": 0,
+	        "bullet": "circle",
+	        "color": "#888888"
+	    }, {
+	        "time": "20",
+	        "kills": 1,
+            "bullet": "circle",
+            "color": "#dd0000"
+	    }, {
+	        "time": "25",
+	        "kills": 4,
+            "bullet": "circle",
+            "color": "#dd0000"
+	    }];
+
+        //country graph
+	    var countryChart = new AmCharts.AmSerialChart();
+	    countryChart.dataProvider = chartData;
+	    countryChart.categoryField = "time";
+
+	    var graph = new AmCharts.AmGraph();
+	    graph.valueField = "kills";
+	    graph.type = "line";
+
+	    var categoryAxis = countryChart.categoryAxis;
+	    categoryAxis.autoGridCount = false;
+	    categoryAxis.gridCount = chartData.length+5;
+	    categoryAxis.gridPosition = "start";
+
+	    categoryAxis.labelRotation = 0;
+
+	    //graph.negativeBase = 1;
+
+	    graph.fillAlphas = 0.1;
+
+        //bullet stuff
+
+	    graph.bullet = "round";
+	    graph.bulletField = "bullet";
+	    graph.colorField = "color";
+	    //graph.bulletColor = "#dddddd";
+
+	    graph.customBulletField = "cbullet";
+	    graph.customBulletColor = "#dddddd";
+
+	    graph.bulletBorderAlpha = 1;
+	    graph.bulletBorderThickness = 0.5;
+        graph.bulletBorderColor = "#000000"
+
+	    graph.negativeLineColor = "#0000dd";
+	    graph.lineColor = "#dd0000";
+
+        countryChart.angle = 30;
+        countryChart.depth3D = 15;
+
+        graph.balloonText = "[[category]]: <b>[[value]]</b>";
+
+	    countryChart.addGraph(graph);
+	    countryChart.write('chartdiv');
+
+
+    });
+
+</script>
+
+<div id="chartdiv" style="width: 640px; height: 400px;"></div>
