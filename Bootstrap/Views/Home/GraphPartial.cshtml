@@ -1,4 +1,5 @@
-﻿
+﻿@model Bootstrap.Controllers.HomeController.battleDetailsModel
+
 @{
     ViewBag.Title = "GraphPartial";
 }
@@ -10,6 +11,25 @@
      * Use addInitHandler to do operations on the chart object
      * before it is drawn
      */
+
+    var chartData = [];
+
+    // generate some random data, quite different range
+    //function generateChartData() {
+    //    if(model.
+    //    for (day = 0; day < 50; day++) {
+    //        var newDate = new Date(firstDate);
+    //        newDate.setDate(newDate.getDate() + day);
+
+    //        var visits = Math.round(Math.random() * 40) - 20;
+
+    //        chartData.push({
+    //            time: 
+    //            event: 
+    //            bullet:
+    //        });
+    //    }
+    //}
 
     //AmCharts.addInitHandler(function (chart) {
     //    // cycle through all data points and assign color per Y value
@@ -27,39 +47,38 @@
     AmCharts.ready(function () {
 
         //alert('page loaded');
-
 	    // chart code will go here
-	    var chartData = [{
-	        "time": "5",
-	        "kills": 2,
-            "bullet": "circle",
-            "color" : "#dd0000"
-	    }, {
-	        "time": "10",
-	        "kills": 0,
-	        "bullet": "circle",
-            "color" : "#888888"
-	    }, {
-	        "time": "15",
-	        "kills": -3,
-            "bullet": "circle",
-            "color": "#0000dd"
-	    }, {
-	        "time": "17",
-	        "kills": 0,
-	        "bullet": "circle",
-	        "color": "#888888"
-	    }, {
-	        "time": "20",
-	        "kills": 1,
-            "bullet": "circle",
-            "color": "#dd0000"
-	    }, {
-	        "time": "25",
-	        "kills": 4,
-            "bullet": "circle",
-            "color": "#dd0000"
-	    }];
+	    //var chartData = [{
+	    //    "time": "5",
+	    //    "kills": 2,
+        //    "bullet": "circle",
+        //    "color" : "#dd0000"
+	    //}, {
+	    //    "time": "10",
+	    //    "kills": 0,
+	    //    "bullet": "circle",
+        //    "color" : "#888888"
+	    //}, {
+	    //    "time": "15",
+	    //    "kills": -3,
+        //    "bullet": "circle",
+        //    "color": "#0000dd"
+	    //}, {
+	    //    "time": "17",
+	    //    "kills": 0,
+	    //    "bullet": "circle",
+	    //    "color": "#888888"
+	    //}, {
+	    //    "time": "20",
+	    //    "kills": 1,
+        //    "bullet": "circle",
+        //    "color": "#dd0000"
+	    //}, {
+	    //    "time": "25",
+	    //    "kills": 4,
+        //    "bullet": "circle",
+        //    "color": "#dd0000"
+	    //}];
 
         //country graph
 	    var countryChart = new AmCharts.AmSerialChart();
@@ -71,6 +90,7 @@
 	    graph.type = "line";
 
 	    var categoryAxis = countryChart.categoryAxis;
+	    //categoryAxis.axisColor = "#000000";
 	    categoryAxis.autoGridCount = false;
 	    categoryAxis.gridCount = chartData.length+5;
 	    categoryAxis.gridPosition = "start";
@@ -89,7 +109,7 @@
 	    //graph.bulletColor = "#dddddd";
 
 	    graph.customBulletField = "cbullet";
-	    graph.customBulletColor = "#dddddd";
+	    graph.customBulletColor = "#dd0000";
 
 	    graph.bulletBorderAlpha = 1;
 	    graph.bulletBorderThickness = 0.5;
@@ -111,4 +131,5 @@
 
 </script>
 
-<div id="chartdiv" style="width: 640px; height: 400px;"></div>
+    <div id="chartdiv" style="width: 640px; height: 400px;"></div>
+

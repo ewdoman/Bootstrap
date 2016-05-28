@@ -11,8 +11,8 @@ using HaloSharp.Exception;
 using HaloSharp.Extension;
 using HaloSharp.Model;
 using HaloSharp.Query.Stats;
-using HaloSharp.Query.Stats.Lifetime;
 using HaloSharp.Query.Stats.CarnageReport;
+using HaloSharp.Query.Metadata;
 using HaloSharp.Validation;
 
 namespace Bootstrap.Helpers
@@ -22,9 +22,10 @@ namespace Bootstrap.Helpers
         //Set up intial parameters used in both all functions
         private static List<PlayerStats> matchPlayerStats { set; get; }
         private static List<DeathEventStats> matchDeathEventStats { set; get; }
+        private static List<string> teamColors { set; get; }
 
         //TODO:Encrypt this so others wont mess with it
-        private static string developerKey = "bddabd5d05f54eb0993eddfdda59b8ac";
+        private static string developerKey = "5f97d87729cb4c7bbf44687e9b9267f4";
 
         //Some setup for the HaloSharp client...
         private static Product developerAccessProduct = new Product
@@ -118,7 +119,7 @@ namespace Bootstrap.Helpers
                 {
                     matchDeathEventStats.Add(new DeathEventStats(
                         result.TimeSinceStart,
-                        "Victim",
+                        result.EventName.ToString(),
                         "Killer"));
                 }
 
@@ -127,6 +128,40 @@ namespace Bootstrap.Helpers
             return matchDeathEventStats;
         }
 
-     }
+        //Get Team color info
+
+        public static List<string> HaloApiGetTeamColors()
+        {
+            Task asyncResults = Task.Run(() => TeamColorQueryRunAsync());
+            asyncResults.Wait();
+            return teamColors;
+        }
+
+        static async Task<List<string>> TeamColorQueryRunAsync()
+        {
+            teamColors = new List<string>();
+
+            var client = new HaloClient(developerAccessProduct, cacheSettings);
+
+            using (var session = client.StartSession())
+            {
+
+                var query = new GetTeamColors();
+
+                var matchCarnage = await session.Query(query);
+
+                foreach (var result in matchCarnage)
+                {
+                   teamColors.Add(result.Name);
+                    System.Diagnostics.Debug.WriteLine(result.Id + " " + result.Name);
+                }
+
+            }
+
+            return teamColors;
+        }
+
+
+    }
 
 }

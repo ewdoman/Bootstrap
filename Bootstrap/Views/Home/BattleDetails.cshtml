@@ -1,4 +1,5 @@
-﻿@model Bootstrap.Models.v_Battle
+﻿@*@model Bootstrap.Models.v_Battle*@
+@model Bootstrap.Controllers.HomeController.battleDetailsModel
 
 @{
     ViewBag.Title = "Battle Details";
@@ -16,33 +17,33 @@
 
         <div class="col-md-4" style="padding-right:20px; border-right: 2px inset #ccc;">
             @*<p>@ViewBag.gameModeNameArray[Model.gamemode]</p>*@
-            <p>@Html.DisplayFor(Model => Model.gamevariant)</p>
-            <p>@Html.DisplayFor(Model => Model.mapname) - @Html.DisplayFor(Model => Model.mapvariant)</p>
-            <p>@Html.DisplayFor(Model => Model.matchdate)</p>
+            <p>@Html.DisplayFor(Model => Model.battleQuery.gamevariant)</p>
+            <p>@Html.DisplayFor(Model => Model.battleQuery.mapname) - @Html.DisplayFor(Model => Model.battleQuery.mapvariant)</p>
+            <p>@Html.DisplayFor(Model => Model.battleQuery.matchdate)</p>
         </div>
 
         <div class="col-md-4" style="padding-right:20px; border-right: 2px inset #ccc;">
-            @if (Model.a_score > Model.b_score)
+            @if (Model.battleQuery.a_score > Model.battleQuery.b_score)
             {
-                <p>Winner: @Html.DisplayFor(Model => Model.a_company)</p>
+                <p>Winner: @Html.DisplayFor(Model => Model.battleQuery.a_company)</p>
             }
             else
             {
-                <p>Winner: @Html.DisplayFor(Model => Model.b_company)</p>
+                <p>Winner: @Html.DisplayFor(Model => Model.battleQuery.b_company)</p>
             }
 
             <div class="row clearfix">
                 <div class="span_4 column" style="background-color:#442222">
-                    <p>@Html.DisplayFor(Model => Model.a_company)</p>
-                    <p>@Html.DisplayFor(Model => Model.a_score)</p>
+                    <p>@Html.DisplayFor(Model => Model.battleQuery.a_company)</p>
+                    <p>@Html.DisplayFor(Model => Model.battleQuery.a_score)</p>
                 </div>
 
                 <div class="span_4 column" style="background-color:#222244">
-                    <p>@Html.DisplayFor(Model => Model.b_company)</p>
-                    <p>@Html.DisplayFor(Model => Model.b_score)</p>
+                    <p>@Html.DisplayFor(Model => Model.battleQuery.b_company)</p>
+                    <p>@Html.DisplayFor(Model => Model.battleQuery.b_score)</p>
                 </div>
 
-                <p>@Html.DisplayFor(Model => Model.matchduration)</p>
+                <p>@Html.DisplayFor(Model => Model.battleQuery.matchduration)</p>
             </div>
 
         </div>
@@ -63,7 +64,14 @@
                                <h2>Red Team</h2>
                                 @foreach(var item in ViewBag.PlayerStatsList)
                                 {
-                                    <p>@item.playerName</p>
+                                    if (@item.TeamID == 0)
+                                    {
+                                        <p>Team: RED - @item.playerName</p>
+                                    }
+                                    else
+                                    {
+                                        <p>Team: BLUE - @item.playerName</p>
+                                    }
                                 }
                             </th>
                             <th>
@@ -77,12 +85,12 @@
 
     <div class="row" style="background-color:#333355">
         <h2>K/D Graph</h2>
+        @*@{Html.RenderPartial("GraphPartial", Model);}*@
         @foreach (var item in ViewBag.DeathEventStatsList)
         {
-            <p>@item.TimeSinceStart</p>
+            <p>@item.TimeSinceStart - @item.Victim</p>
         }
         @*graph javascript goes here*@
-        @*@{Html.RenderPartial("GraphPartial");}*@
 
     </div>
 

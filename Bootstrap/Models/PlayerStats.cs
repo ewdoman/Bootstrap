@@ -13,6 +13,7 @@ namespace Bootstrap.Models
         public int playerKills { set; get; }
         public int playerAssists { set; get; }
         public int playerDeaths { set; get; }
+        //public TimeSpan matchDuration { set; get; }
 
         //construct must be called with parameters for now
         public PlayerStats(string pN, int tID, int pR, int pK, int pA, int pD)
@@ -23,6 +24,7 @@ namespace Bootstrap.Models
             playerKills = pK;
             playerAssists = pA;
             playerDeaths = pD;
+            //matchDuration = mD;
         }
     }
 }

@@ -14,6 +14,20 @@ namespace Bootstrap.Controllers
         private Quartermaster.Models.Spartan spartandb = new Quartermaster.Models.Spartan();
         private BattleModel battlemodeldb = new BattleModel();
 
+        public class battleDetailsModel
+        {
+            public v_Battle battleQuery { set; get; }
+            public static List<PlayerStats> matchPlayerStats { set; get; }
+            public static List<DeathEventStats> matchDeathEventStats { set; get; }
+
+            public battleDetailsModel(v_Battle bQ, List<PlayerStats> mPS, List<DeathEventStats> mDES)
+            {
+                battleQuery = bQ;
+                matchPlayerStats = mPS;
+                matchDeathEventStats = mDES;
+            }
+        }
+
         public ActionResult Index()
         {
             return View(new ViewModel());
@@ -39,21 +53,6 @@ namespace Bootstrap.Controllers
 
             /**
             /*    Search page main logic Begin
-            **/
-
-            //Async API call debug print statements
-            /**
-            //System.Diagnostics.Debug.WriteLine("Main starting call");
-            //Task finalresults = Task.Run(() => HaloSharpHelper.printResults());
-            //finalresults.Wait();
-            //System.Diagnostics.Debug.WriteLine("MAIN: This doesn't take long in main");
-            //System.Diagnostics.Debug.WriteLine("MAIN: Here's some more logic while we wait");
-            //System.Diagnostics.Debug.WriteLine("MAIN: Things are happening on a different thread");
-            //System.Diagnostics.Debug.WriteLine("MAIN: Going to sleep for 3 seconds");
-            //System.Threading.Thread.Sleep(3000);
-            //System.Diagnostics.Debug.WriteLine("MAIN: Woke back up");
-            ////results.Wait();
-            //System.Diagnostics.Debug.WriteLine("Only print this at the end");
             **/
 
             //Create LINQ query for AWS db
@@ -84,9 +83,12 @@ namespace Bootstrap.Controllers
 
             ViewBag.PlayerStatsList = HaloSharpQuery.HaloApiGetPlayerStats(model);
             ViewBag.DeathEventStatsList = HaloSharpQuery.HaloApiGetDeathEventStats(model);
+            ViewBag.TeamColors = HaloSharpQuery.HaloApiGetTeamColors();
             //List<PlayerStats> test = new List<PlayerStats>();
 
-            return View(matchQry);
+            battleDetailsModel matchData = new battleDetailsModel(matchQry, ViewBag.PlayStatsList, ViewBag.DeathEventStatsList);
+
+            return View(matchData);
         }
 
         public ActionResult About()
