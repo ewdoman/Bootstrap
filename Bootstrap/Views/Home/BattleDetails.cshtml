@@ -77,8 +77,12 @@
 
     <div class="row" style="background-color:#333355">
         <h2>K/D Graph</h2>
+        @foreach (var item in ViewBag.DeathEventStatsList)
+        {
+            <p>@item.TimeSinceStart</p>
+        }
         @*graph javascript goes here*@
-        @{Html.RenderPartial("GraphPartial");}
+        @*@{Html.RenderPartial("GraphPartial");}*@
 
     </div>
 

@@ -44,8 +44,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="HaloSharp, Version=1.5.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\HaloSharp.1.5.0.0\lib\net452\HaloSharp.dll</HintPath>
+    <Reference Include="HaloSharp, Version=1.5.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\HaloSharp.1.5.1.0\lib\net452\HaloSharp.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.AI.Agent.Intercept, Version=1.2.0.1011, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
@@ -217,6 +217,7 @@
     <Compile Include="Models\Clan.cs" />
     <Compile Include="Helpers\HaloSharpHelper.cs" />
     <Compile Include="Models\DynamicHyperLink.cs" />
+    <Compile Include="Models\DeathEventStats.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\MatchResultsModel.cs" />

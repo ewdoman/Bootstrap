@@ -83,6 +83,7 @@ namespace Bootstrap.Controllers
             //finalresults.Wait();
 
             ViewBag.PlayerStatsList = HaloSharpQuery.HaloApiGetPlayerStats(model);
+            ViewBag.DeathEventStatsList = HaloSharpQuery.HaloApiGetDeathEventStats(model);
             //List<PlayerStats> test = new List<PlayerStats>();
 
             return View(matchQry);
